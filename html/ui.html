@@ -12,10 +12,6 @@
     </head>
     <body style="background-color: rgba(0,0,0,0); font-family: 'Roboto', sans-serif !important;">
         <div class="main-container">
-		<div><p class="Character-1">Character Slot 1</p></div>
-		<div><p class="Character-2">Character Slot 2</p></div>
-		<div><p class="Character-3">Character Slot 3</p></div>
-		<div><p class="Character-4">Character Slot 4</p></div>
             <div class="character-container">
                 <div class="character-box" data-ischar="false" data-charid="1">
                     <h3 class="character-fullname"><i class="fas fa-plus"></i></h3>
@@ -43,8 +39,8 @@
                 </div>
             </div>
             <div class="character-buttons">
-                <button class="btn btn-play" id="play-char">Start Roleplay</button>
-                <button class="btn btn-delete" id="delete" data-toggle="modal" data-target="#delete-char">DELETE CHARACTER</button>
+                <button class="btn btn-play" id="play-char">Play</button>
+                <button class="btn btn-delete" id="delete" data-toggle="modal" data-target="#delete-char">Delete</button>
             </div>
         </div>
         
@@ -57,7 +53,7 @@
                     <div class="modal-body">
                         <h5>Are You Sure?</h5>
                         <hr>
-                        <p>By deleting your account we won't be able to recover it, all properties, cars etc. will be deleted</p>
+                        <p>By deleting your character we won't be able to recover it, all properties, cars etc. will be deleted</p>
                         <hr>
                         <div class="modal-footer">
                             <button id="deletechar" class="btn btn-delete" data-toggle="modal" data-dismiss="modal">DELETE</button>
