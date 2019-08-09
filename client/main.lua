@@ -28,6 +28,7 @@ Citizen.CreateThread(function ()
         if IsChoosing then
             DisplayHud(false)
             DisplayRadar(false)
+            TriggerEvent('mythic_ui:client:HideUI', source)
         end
     end
 end)
@@ -92,6 +93,15 @@ AddEventHandler('kashactersC:SpawnCharacter', function(spawn, isnew)
     IsChoosing = false
     DisplayHud(true)
     DisplayRadar(true)
+    TriggerEvent('mythic_ui:client:DisplayUI', source)
+end)
+
+RegisterNetEvent("kashactersC:Skinchanger")
+AddEventHandler("kashactersC:Skinchanger", function(source)
+    local source_ = source
+        ESX.TriggerServerCallback("esx_skin:getPlayerSkin", function(skin, jobSkin)
+        TriggerEvent("skinchanger:loadSkin", skin)
+    end)
 end)
 
 RegisterNetEvent('kashactersC:ReloadCharacters')
