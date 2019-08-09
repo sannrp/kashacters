@@ -7,12 +7,17 @@ local IdentifierTables = {
 	{table = "addon_inventory_items", column = "owner"},
     {table = "billing", column = "identifier"},
 	{table = "characters", column = "identifier"},
-	{table = "datastore_data", column = "owner"},
-	{table = "owned_vehicles", column = "owner"},
+    {table = "datastore_data", column = "owner"},
+    {table = "jsfour_cardetails", column = "identifier"},
+    {table = "lsrp_motels", column = "ident"},
+    {table = "owned_bags", column = "identifier"},
+    {table = "owned_vehicles", column = "owner"},
+    {table = "phone_users_contacts", column = "identifier"},
     {table = "rented_vehicles", column = "owner"},
 	{table = "society_moneywash", column = "identifier"},
 	{table = "users", column = "identifier"},
     {table = "user_accounts", column = "identifier"},
+    {table = "user_contacts", column = "identifier"},
 	{table = "user_inventory", column = "identifier"},
 	{table = "user_licenses", column = "owner"},
 }
@@ -30,10 +35,11 @@ RegisterServerEvent("kashactersS:CharacterChosen")
 AddEventHandler('kashactersS:CharacterChosen', function(charid, ischar)
     local src = source
     local spawn = {}
-    SetLastCharacter(src, tonumber(charid))
-    SetCharToIdentifier(GetPlayerIdentifiers(src)[1], tonumber(charid))
+        SetLastCharacter(src, tonumber(charid))
+        SetCharToIdentifier(GetPlayerIdentifiers(src)[1], tonumber(charid))
     if ischar == "true" then
         spawn = GetSpawnPos(src)
+        TriggerClientEvent("kashactersC:Skinchanger", src)
     else
 		TriggerClientEvent('skinchanger:loadDefaultModel', src, true, cb)
         spawn = { x = 195.55, y = -933.36, z = 29.90 } -- DEFAULT SPAWN POSITION
