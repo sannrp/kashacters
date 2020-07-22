@@ -60,20 +60,20 @@ end)]]--
 ```
 ## Inventory Quick Fix
 - To fix the inventory not showing after death. 
-Quick fix you can do. 
-In es_extended Look for 
+Quick fix you can do. (es_extended v1final)
+In es_extended/client/main.lua Look for (line 438 - 448)
 
 ```
 -- Menu interactions
 Citizen.CreateThread(function()
 	while true do
-
 		Citizen.Wait(0)
 
-		if IsControlJustReleased(0, Keys['F2']) and IsInputDisabled(0) and not isDead and not ESX.UI.Menu.IsOpen('default', 'es_extended', 'inventory') then
-			ESX.ShowInventory()
+		if IsControlJustReleased(0, 289) then
+			if IsInputDisabled(0) and not isDead and not ESX.UI.Menu.IsOpen('default', 'es_extended', 'inventory') then
+				ESX.ShowInventory()
+			end
 		end
-
 	end
 end)
 ```
@@ -85,7 +85,7 @@ Citizen.CreateThread(function()
 
 		Citizen.Wait(0)
 
-		if IsControlJustReleased(0, Keys['F2']) and IsInputDisabled(0) and not ESX.UI.Menu.IsOpen('default', 'es_extended', 'inventory') then
+		if IsControlJustReleased(0, 289) and IsInputDisabled(0) and not ESX.UI.Menu.IsOpen('default', 'es_extended', 'inventory') then
 			ESX.ShowInventory()
 		end
 
